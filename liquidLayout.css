@@ -1,0 +1,86 @@
+@charset "utf-8";
+/* CSS Document */
+
+body
+{
+	min-height:900px;
+	height:90%;
+	min-width:1000px;
+	max-width:94%;
+	margin-left:auto;
+	margin-right:auto;
+
+}
+
+#wrapper
+{
+	min-height:600px;
+	margin-top:2%;
+	margin-bottom:2%;
+}
+
+#wrapper p
+{
+	margin-left:2%;
+}
+
+#result
+{
+	float:left;
+	width:32%;
+	background-color:#00675c;
+	border-radius:20px;
+	min-height:600px;
+	color:#FFF;
+	font-family: 'Marmelad', sans-serif;
+}
+
+#bus
+{
+	float:right;
+	width:65%;
+	background-color:#00675c;
+	border-radius:20px;
+	min-height:600px;
+	color:#FFF;
+	font-family: 'Marmelad', sans-serif;
+}
+
+#header
+{
+	min-height:120px;
+	height:18%;
+	background-color:#5ccccc;
+	border-radius:20px;
+	text-align:center;
+	padding-top: 1%;
+	font-size:24px;
+}
+
+#header h1
+{
+	font-family: 'Open Sans Condensed' , sans-serif;
+}
+
+#header h1 span
+{
+	font-family: 'Fredericka the Great' , cursive;
+}
+
+#footer
+{
+	min-height:100px;
+	height:18%;
+	background-color: #009E8E;
+	border-radius:20px;
+}
+
+#contact
+{
+	text-align:left;
+	font-family: 'Marmelad', sans-serif;
+	color:#FFF;
+	max-width:40%;
+	margin-left:2%;
+	padding-top: 1%;
+}

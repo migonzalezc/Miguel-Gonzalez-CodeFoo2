@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>CodeFoo</title>
+
+<link rel="stylesheet" type="text/css" href="liquidLayout.css" />
+<link href="http://fonts.googleapis.com/css?family=Fredericka+the+Great|Open+Sans+Condensed:700" media="screen" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Marmelad' rel='stylesheet' type='text/css'>
+
+<script type="text/javascript">
+function calculate()
+{
+	var number = document.getElementById("number").value;
+	var contNumber = 0, contLetter=1; //counters for both letters and numbers.
+	var totalNumbers, totalLetters, totalPlates, excess; 
+	
+	//it counts the number of digits assuming that all characters are letters
+	while(Math.pow(25,contLetter)<number)
+	{contLetter++;}
+	
+	totalNumbers = Math.pow(10,contNumber);//product between all numbers.
+	totalLetters = Math.pow(25,contLetter);//product between all letters. 
+	totalPlates = totalNumbers * totalLetters;//total of plates
+	
+	/* At the beginning, I'm assuming that all characters are letters.
+	Now I start switching each letter for a number until I find the optimal combination.
+	*/
+	while((totalNumbers*totalLetters)>=number && contLetter>=0)
+	{
+		totalPlates=totalNumbers*totalLetters;
+		contNumber++; //The amount of numbers increases as the amount of letters decreases
+		contLetter--;
+		totalNumbers=Math.pow(10,contNumber);
+		totalLetters = Math.pow(25,contLetter);
+	}
+
+	contNumber--; contLetter++; //the loop will leave one value after the correct one, so I revert.
+	excess=totalPlates-number; // excess plates
+	
+	//changing the inner HTML of the paragraph tags to show the result.
+	document.getElementById('pop').innerHTML = "Population: " + number;
+	document.getElementById('pat').innerHTML = "Pattern: " +  contLetter + " Letters and " + contNumber +" Numbers";
+	document.getElementById('total').innerHTML = "Total plates: " + totalPlates;
+	document.getElementById('excess').innerHTML = "Excess plates: " + excess;
+}
+</script>
+</head>
+<body>
+
+<div id="header"> 
+	<h1> CODE <span>FOO</span> <sup>2</sup></h1>
+</div>
+	
+    <div id="wrapper">
+        
+        <div id="result">
+        	<p>
+            <label for="number"> Population: </label>
+            <input id= "number" type="text"/> </input>    
+            </p>
+            <p><a href="javascript:calculate()"> <img src="calculateButton.png" /></a></p>
+            <br />
+            <p id="pop"> Population: </p>
+            <p id="pat"> Pattern: </p>
+            <p id="total"> Total plates: </p>
+            <p id="excess"> Excess plates: </p>
+        </div>
+        
+		<div id="bus"> 
+
+		<p>The ideal procedure would be: <br/>
+
+		-calculating the volume of the inner capacity of the school bus. <br/>
+		-calculating the volume of the ping pong ball<br />
+		-dividing the volume of the bus and the volume of the ball. <br  />
+		</p>
+		
+        <p> There are other variables, like the spacing between balls, as they do not fit perfectly next to each other; and whether the bus has 										the seats in it.<br  /></p>
+
+		<p>If we took in consideration spacing between balls, it's like the ball is inside a cube, where each side is the diameter of the ball. <br  /></p>
+
+		<p>And, the total volume of the seats would take about 1/5 of the total volume of the bus.<br  /></p>
+
+		<p>This calculation was made using the following measures: <br  /></p>
+
+		<p>Ping-Pong ball: diameter = 40mm <br  />
+		radius = 20mm = 0.02 meters <br  />
+        volume Ball= 4/3*pi*r^3 = 3.35x10^-5 m^3<br  />
+		</p>
+		<p>Average school bus inner capacity: length  = 35 feet = aprox. 10 meters<br  />
+		width  = 8 feet = 2.4 meters<br  />
+        height = 6.5 feet = 2 meters<br  />
+                                  
+        volume Bus= length * width * height = 48 m^3<br  /></p>
+
+		<p># of balls in bus (ideal calculation) = volume Bus / volume Ball = 1432395 balls<br  />
+		# of balls in bus with just spacing = volume Bus / diameter^3 = 750000 balls<br  />
+		# of balls in bus with just seats  = volume Bus*(4/5) / volume Ball = 1146268 balls<br  />
+		# of balls in bus with both seats and spacing = volume Bus*(4/5) / diameter^3 = 600000 balls<br  />
+		</p>
+        
+		</div>
+	</div> <!--wrapper-->
+    
+    <div id="footer"> 
+    	<div id="contact">
+            <p> Miguel A. Gonzalez </p>
+            <p> miguelgonzalez1187@gmail.com </p>
+            <p> Caracas, Venezuela</p>
+        </div>
+    </div>
+
+</body>
+</html>
